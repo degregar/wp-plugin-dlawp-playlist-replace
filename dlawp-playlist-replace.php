@@ -34,9 +34,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 if (!function_exists('dlawp_pr_enqueue_scripts')) {
     function dlawp_pr_enqueue_scripts()
     {
-        wp_enqueue_script('dlawp-pr', plugin_dir_url(__FILE__) . 'public/js/script.js', ['jquery']);
+        wp_enqueue_script('dlawp-pr', plugin_dir_url(__FILE__) . 'public/js/script.js', ['jquery'], filemtime(plugin_dir_path(__FILE__) . 'public/js/script.js'));
 
-        wp_enqueue_style('dlawp-pr', plugin_dir_url(__FILE__) . 'public/css/style.css');
+        wp_enqueue_style('dlawp-pr', plugin_dir_url(__FILE__) . 'public/css/style.css', [], filemtime(plugin_dir_path(__FILE__) . 'public/css/style.css'));
     }
 }
 

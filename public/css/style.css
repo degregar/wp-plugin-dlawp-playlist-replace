@@ -1,4 +1,33 @@
 .home .elementor-widget-social-icons svg path {
   fill: #7A7A7A;
 }
+
+.home .eael-elements-flip-box-rear-container .eael-elements-flip-box-icon-image svg {
+  width: 3em;
+  height: 3em;
+}
+
+.home .eael-elements-flip-box-rear-container .eael-elements-flip-box-icon-image svg path {
+  fill: white;
+}
+
+.eael-animate-up.eael-elements-flip-box-container-hover .eael-elements-flip-box-flip-card {
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+}
+
+.eael-animate-down.eael-elements-flip-box-container-hover .eael-elements-flip-box-flip-card {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+}
+
+.eael-animate-left.eael-elements-flip-box-container-hover .eael-elements-flip-box-flip-card {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+.eael-animate-right.eael-elements-flip-box-container-hover .eael-elements-flip-box-flip-card {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
 /*# sourceMappingURL=style.css.map */

@@ -1,6 +1,33 @@
-.home .elementor-widget-social-icons {
-    svg path {
-        fill: #7A7A7A;
+.home {
+    .elementor-widget-social-icons {
+        svg path {
+            fill: #7A7A7A;
+        }
     }
+
+    .eael-elements-flip-box-rear-container .eael-elements-flip-box-icon-image svg {
+        width: 3em;
+        height: 3em;
+
+        path {
+            fill: white;
+        }
+    }
+}
+
+.eael-animate-up.eael-elements-flip-box-container-hover .eael-elements-flip-box-flip-card {
+    transform: rotateX(180deg);
+}
+
+.eael-animate-down.eael-elements-flip-box-container-hover .eael-elements-flip-box-flip-card {
+    transform: rotateX(-180deg);
+}
+
+.eael-animate-left.eael-elements-flip-box-container-hover .eael-elements-flip-box-flip-card {
+    transform: rotateY(-180deg);
+}
+
+.eael-animate-right.eael-elements-flip-box-container-hover .eael-elements-flip-box-flip-card {
+    transform: rotateY(180deg);
 }
 

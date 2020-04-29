@@ -10,7 +10,6 @@ function replaceMusicPlatformIcon() {
  */
 function getMusicPlatformEmbedUrl(platformUrl) {
     var embedUrl = platformUrl;
-    // embedLink = platformUrl;
 
     // search for spotify.com
     if (platformUrl.search('spotify.com') >= 0) {
@@ -57,12 +56,7 @@ jQuery(document).ready(function ($) {
         // name all the iframes
         $(item).find('iframe').attr('name', iframeName);
 
-        // add target for all links within the box
-        // $(item).parent().find('a.elementor-social-icon').each((aindex, aitem) => {
-        //     // console.log($(this));
-        //     $(aitem).attr('target', iframeName).end();
-        // });
-        $(item).parent().find('a.elementor-social-icon').attr('target', iframeName);
+        // handle icon links
         $(item).parent().find('a.elementor-social-icon').on('click', function(e) {
             // get original link
             var platformUrl = $(this).attr('href');
@@ -73,21 +67,32 @@ jQuery(document).ready(function ($) {
             // check if changed
             if (embedUrl != platformUrl) {
                 e.preventDefault();
+
                 // if link is the same, allow to open new tab
                 $('iframe[name="' + iframeName + '"]').attr('src', embedUrl);
 
-                // TODO: clear all hover states
+                // clear all hover states
+                $('.eael-elements-flip-box-container').removeClass('eael-elements-flip-box-container-hover');
 
-                // TODO: trigger hover event for the 
-                $(this).parent().parent().parent().parent().find('.eael-elements-flip-box-container').trigger('hover');
+                // find the flipbox container
+                var flipbox = $(this).parent().parent().parent().parent().parent().find('.eael-elements-flip-box-container');
+
+                // trigger hover effect
+                flipbox.addClass('eael-elements-flip-box-container-hover');
+
+                // get icon from the link
+                var iconFromLink = $(this).find('i');
+
+                if (!iconFromLink.length) {
+                    // if no i tag, get svg tag instead
+                    iconFromLink = $(this).find('svg');
+                }
+
+                // replace icon on the top of the flipbox
+                flipbox.find('.eael-elements-flip-box-rear-container .eael-elements-flip-box-icon-image i').replaceWith(iconFromLink.clone());
+                flipbox.find('.eael-elements-flip-box-rear-container .eael-elements-flip-box-icon-image svg').replaceWith(iconFromLink.clone());
             }
             // if not, open in new window, only youtube link should behaves like this
         });
-        // console.log("right after searching for a tags");
     });
-
-    // replace links for all boxes
-
-    // add event listener to icons
-    
 });
